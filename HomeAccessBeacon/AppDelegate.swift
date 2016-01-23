@@ -9,13 +9,28 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate  {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if LocationManager.sharedManager.respondsToSelector("requestAlwaysAuthorization") {
+            LocationManager.sharedManager.requestAlwaysAuthorization()
+        }
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+
+        
+        LocationManager.sharedManager.delegate = LocationManager.sharedManager
+        
+        LocationManager.sharedManager.startMonitoringForRegion(LocationManager.region)
+        LocationManager.region.notifyOnEntry = true
+        LocationManager.region.notifyOnExit = true
+
+        
         return true
     }
 
@@ -40,7 +55,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+       
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification){
+        let alertController = UIAlertController(title: notification.alertBody, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let action: UIAlertAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(action)
+        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+    }
 }
+
+
 
