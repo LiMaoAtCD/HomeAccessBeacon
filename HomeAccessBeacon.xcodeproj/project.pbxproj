@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		870FDA0F1C53711A009C16BE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870FDA0E1C53711A009C16BE /* Alamofire.framework */; };
 		870FDA111C537133009C16BE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 870FDA0E1C53711A009C16BE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		870FDA651C55B20D009C16BE /* BlueToothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870FDA641C55B20D009C16BE /* BlueToothManager.swift */; };
 		8759B8261C52165C007FCE0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8759B8251C52165C007FCE0A /* AppDelegate.swift */; };
 		8759B8281C52165C007FCE0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8759B8271C52165C007FCE0A /* ViewController.swift */; };
 		8759B82B1C52165C007FCE0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8759B8291C52165C007FCE0A /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		870FDA0E1C53711A009C16BE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		870FDA641C55B20D009C16BE /* BlueToothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueToothManager.swift; sourceTree = "<group>"; };
 		8759B8221C52165C007FCE0A /* HomeAccessBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeAccessBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8759B8251C52165C007FCE0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8759B8271C52165C007FCE0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				8759B82E1C52165C007FCE0A /* LaunchScreen.storyboard */,
 				8759B8311C52165C007FCE0A /* Info.plist */,
 				8759B8451C52253E007FCE0A /* LocationManager.swift */,
+				870FDA641C55B20D009C16BE /* BlueToothManager.swift */,
 			);
 			path = HomeAccessBeacon;
 			sourceTree = "<group>";
@@ -171,7 +174,7 @@
 						CreatedOnToolsVersion = 7.2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -227,6 +230,7 @@
 			files = (
 				8759B8281C52165C007FCE0A /* ViewController.swift in Sources */,
 				8759B8261C52165C007FCE0A /* AppDelegate.swift in Sources */,
+				870FDA651C55B20D009C16BE /* BlueToothManager.swift in Sources */,
 				8759B8461C52253E007FCE0A /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
