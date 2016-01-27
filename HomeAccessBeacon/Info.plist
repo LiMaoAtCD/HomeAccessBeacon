@@ -29,10 +29,6 @@
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>只有开启这项服务才能无障碍开门</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>bluetooth-central</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

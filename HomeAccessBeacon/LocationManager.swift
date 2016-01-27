@@ -48,7 +48,6 @@ class LocationManager: CLLocationManager, CLLocationManagerDelegate {
         Alamofire.request(.GET, iBeaconURLString, parameters: nil, encoding: ParameterEncoding.URL, headers: nil).responseString { (response) -> Void in
         }
         
-        BlueToothManager.sharedManager
         
     }
     
