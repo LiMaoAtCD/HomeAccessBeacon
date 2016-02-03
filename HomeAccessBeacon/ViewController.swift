@@ -10,58 +10,37 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var time: UILabel!
+    var tableViewController: TableViewController!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
-        time = UILabel()
-        view.addSubview(time)
 
-        time.textColor = UIColor.blackColor()
-        time.textAlignment = .Center
-        time.translatesAutoresizingMaskIntoConstraints = false
+        tableViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TableViewController") as!TableViewController
+        self.addChildViewController(tableViewController)
         
-        view.addConstraints(
-            [
-                NSLayoutConstraint(item: time, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0),
-                NSLayoutConstraint(item: time, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0),
-
-            ])
+        tableViewController.willMoveToParentViewController(self)
+        self.view.addSubview(tableViewController.view)
+        tableViewController.view.frame = self.view.bounds
+        
+        tableViewController.didMoveToParentViewController(self)
         
         
-        BlueToothCenter.defaultCenter.handler = {(data) in
-            
+        BlueToothCenter.defaultCenter.handler = { items in
+            self.tableViewController.pmData = items
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.time.text = data
-                self.time.updateConstraintsIfNeeded()
-                print(data)
+                self.tableViewController.tableView.reloadData()
             })
-            
         }
-    
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
     }
     
-    
-
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-
-
-
 }
 
